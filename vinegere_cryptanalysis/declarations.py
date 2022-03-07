@@ -4,7 +4,7 @@ SEQ_LEN = 7
 # Maximum size of the key has to be up to 8
 MAX_KEY_LENGTH = 8
 
-EN_INDEX_OF_COINCIDENCE = 0.67
+EN_INDEX_OF_COINCIDENCE = 0.065
 # Map with letters corresponding indexes
 # The letters are the keys and the values are the frequencies
 # These numbers are the standard frequencies of the letters of the english alphabet
