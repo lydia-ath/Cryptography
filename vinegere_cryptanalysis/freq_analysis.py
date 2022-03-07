@@ -58,6 +58,7 @@ def key_refactor(cyphertext, key_len):
     blocks, last_block = text_preparation.get_blocks(text=cyphertext, size=key_len)
     columns, last_column = text_preparation.get_columns(blocks, last_block)
     frequencies = letterFrequencies(text=cyphertext)
+    counts = getLetterCounts(text=cyphertext)
 
     #print reuslts 
     print('text letters freqs: ', {k: v for k, v in sorted(frequencies.items(), key=lambda item: item[1])})
@@ -67,7 +68,15 @@ def key_refactor(cyphertext, key_len):
     counter = 1
     for column in columns:
         column_frequencies = letterFrequencies(text=column)
-        print('text letters freqs for column' + str(counter) +  ' : ', {k: v for k, v in sorted(column_frequencies.items(), key=lambda item: item[1])})
+        column_counts = getLetterCounts(text=column)
+        print('text letters freqs for column' + str(counter) +  ' : ',
+              {k: v for k, v in sorted(column_frequencies.items(), key=lambda item: item[1])})
+        print()
+        print('text letters counts for column' + str(counter) + ' : ',
+              {k: v for k, v in sorted(column_counts.items(), key=lambda item: item[1])})
+        print()
+        print('-------------------------------------------------------------------------------------------------')
+        print()
         key += find_letter_key(text=column, lf=frequencies)
         counter += 1
 
